@@ -1,6 +1,62 @@
+body {
+  margin: 0;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-image: url("C:/Users/User/Desktop/Personal-Finance-Tracker/personal-finance-tracker/client/src/images/hero-section-pft.png");
+  height: 600px;
+}
+.text {
+  margin-right: 500px;
+  margin-bottom: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start; /* makes all text align consistently */
+  padding: 80px 20px;
+  color: white;
+}
+.hero-section .title {
+  max-width: 900px;
+  font-family: "Jersey 20", sans-serif;
+  text-decoration: underline;
+  color: #f6f0ff;
+}
+
+.hero-section .title h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #f6f0ff;
+  text-wrap: balance;
+  text-shadow: 0 10px 28px rgba(250, 247, 247, 0.45);
+}
+
+.hero-section .description {
+  max-width: 700px;
+  margin-right: 170px;
+}
+
+.description p {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #d7c8e8;
+}
+.description h2 {
+  font-family: "Jersey 20", sans-serif;
+  color: #f6f0ff;
+  text-shadow: 0 10px 28px rgba(250, 247, 247, 0.45);
+  font-size: 30px;
+  text-decoration: underline;
 }
