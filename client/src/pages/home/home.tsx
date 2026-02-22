@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import "./home.css";
 
 interface UserStory {
@@ -32,7 +32,6 @@ export default function Home() {
   const [storySelectedName, setStorySelectedName] = useState<string>(
     userStories[0].name,
   );
-  const [storySelectedIndex, setStorySelectedIndex] = useState<number>(0);
 
   const [storySelectedStory, setSelectedStory] = useState<string>(
     userStories[0].story,
@@ -41,7 +40,6 @@ export default function Home() {
   const handleClick = (i: number) => {
     setStorySelectedName(userStories[i].name);
     setSelectedStory(userStories[i].story);
-    setStorySelectedIndex(i);
   };
 
   return (
@@ -83,7 +81,12 @@ export default function Home() {
         </div>
       </div>
       <div className="pricing">
-        <h2>Choose your plan</h2>
+        <h2 className="pricing-title">Choose your plan</h2>
+        <div className="pricing-grid">
+          <div className="pricing-card">free</div>
+          <div className="pricing-card">premium</div>
+          <div className="pricing-card">enterprise</div>
+        </div>
       </div>
     </>
   );
