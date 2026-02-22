@@ -10,11 +10,11 @@ body {
   text-align: center;
   background-size: cover;
   background-image: url("C:/Users/User/Desktop/Personal-Finance-Tracker/personal-finance-tracker/client/src/images/hero-section-pft.png");
-  height: 600px;
+  height: 780px;
 }
 .text {
-  margin-right: 500px;
-  margin-bottom: 300px;
+  margin-right: 600px;
+  margin-bottom: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
