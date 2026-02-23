@@ -2,6 +2,8 @@ body {
   margin: 0;
 }
 
+/* HERO SECTION */
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -15,11 +17,13 @@ body {
 .text {
   margin-right: 600px;
   margin-bottom: 450px;
+  margin-top: 100px;
+  max-width: 2000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: start; /* makes all text align consistently */
+  text-align: start;
   padding: 80px 20px;
   color: white;
 }
@@ -60,6 +64,14 @@ body {
   font-size: 30px;
   text-decoration: underline;
 }
+
+.hero-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+}
+
+/* STORY SECTION */
 
 .stories {
   display: flex;
@@ -159,6 +171,8 @@ body {
   gap: 14px;
   margin-top: 16px;
 }
+
+/* PRICING SECTION */
 
 .pricing {
   display: grid;

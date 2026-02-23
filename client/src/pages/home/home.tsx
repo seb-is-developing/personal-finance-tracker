@@ -61,6 +61,10 @@ export default function Home() {
               planning long-term wealth, this tracker gives you the structure
               and visibility to stay in control.
             </p>
+            <div className="hero-buttons">
+              <button className="story-buttons">Get Started</button>
+              <button className="story-buttons">Learn More</button>
+            </div>
           </div>
         </div>
       </section>
