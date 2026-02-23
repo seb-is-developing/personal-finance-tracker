@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./home.css";
+import MainNavBar from "../../components/mainNavBar";
 
 interface UserStory {
   name: string;
@@ -44,6 +45,7 @@ export default function Home() {
 
   return (
     <>
+      <MainNavBar />
       <section className="hero-section">
         <div className="text">
           <div className="title">
