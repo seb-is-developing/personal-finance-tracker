@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+}
+
+/* HERO SECTION */
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-image: url("C:/Users/User/Desktop/Personal-Finance-Tracker/personal-finance-tracker/client/src/images/hero-section-pft.png");
+  height: 780px;
+}
+.text {
+  margin-right: 600px;
+  margin-bottom: 450px;
+  margin-top: 100px;
+  max-width: 2000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  padding: 80px 20px;
+  color: white;
+}
+.hero-section .title {
+  max-width: 900px;
+  font-family: "Jersey 20", sans-serif;
+  text-decoration: underline;
+  color: #f6f0ff;
+}
+
+.hero-section .title h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #f6f0ff;
+  text-wrap: balance;
+  text-shadow: 0 10px 28px rgba(250, 247, 247, 0.45);
+}
+
+.hero-section .description {
+  max-width: 700px;
+  margin-right: 170px;
+}
+
+.description p {
+  font-family: "Zalando Sans Expanded", sans-serif;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #d7c8e8;
+}
+.description h2 {
+  font-family: "Jersey 20", sans-serif;
+  color: #f6f0ff;
+  text-shadow: 0 10px 28px rgba(250, 247, 247, 0.45);
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.hero-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+}
+
+/* STORY SECTION */
+
+.stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #120014 0%, #0b0b0f 100%);
+  padding: 72px 24px;
+  gap: 24px;
+}
+.stories-title {
+  font-family: "Jersey 20", sans-serif;
+  color: #f6f0ff;
+  text-shadow: 0 8px 24px rgba(180, 132, 245, 0.45);
+  font-size: clamp(2rem, 3.2vw, 2.35rem);
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin: 0;
+}
+.story-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: min(780px, 100%);
+  padding: 32px 28px;
+  border: 1px solid rgba(175, 122, 255, 0.35);
+  border-radius: 18px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  background: linear-gradient(
+    160deg,
+    rgba(58, 3, 58, 0.95) 0%,
+    rgba(26, 9, 35, 0.98) 100%
+  );
+  backdrop-filter: blur(2px);
+}
+
+.story-name {
+  font-family: "Jersey 20", sans-serif;
+  color: #f6f0ff;
+  text-shadow: 0 8px 24px rgba(180, 132, 245, 0.4);
+  font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  margin: 0;
+}
+.story-description {
+  max-width: 640px;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  margin-top: 16px;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.65;
+  color: #ddccf2;
+}
+
+.story-buttons {
+  border: 1px solid rgba(175, 122, 255, 0.35);
+  border-radius: 12px;
+  background: linear-gradient(
+    160deg,
+    rgba(74, 25, 98, 0.85) 0%,
+    rgba(28, 12, 41, 0.92) 100%
+  );
+  color: #f6f0ff;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  padding: 10px 14px;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.story-buttons:hover {
+  transform: translateY(-1px);
+  border-color: rgba(202, 167, 255, 0.75);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(202, 167, 255, 0.2) inset;
+}
+
+.story-buttons-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+/* PRICING SECTION */
+
+.pricing {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #0b0b0f 0%, #16001b 100%);
+  padding: 72px 24px;
+  gap: 22px;
+}
+
+.pricing-title {
+  margin: 0;
+  font-family: "Jersey 20", sans-serif;
+  color: #f6f0ff;
+  font-size: clamp(2rem, 3vw, 2.3rem);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-shadow: 0 8px 24px rgba(180, 132, 245, 0.45);
+}
+
+.pricing-grid {
+  width: min(1040px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.pricing-card {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(175, 122, 255, 0.35);
+  background: linear-gradient(
+    160deg,
+    rgba(58, 3, 58, 0.92) 0%,
+    rgba(23, 8, 33, 0.96) 100%
+  );
+  color: #f6f0ff;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: 0.8px;
+  text-transform: capitalize;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}

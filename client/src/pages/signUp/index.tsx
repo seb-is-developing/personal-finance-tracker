@@ -1,0 +1,14 @@
+export default function SignUp() {
+  return (
+    <form className="register-form">
+      <h1>Sign Up</h1>
+      <label>Username:</label>
+      <input type="text" name="username" />
+      <label>Email:</label>
+      <input type="email" name="email" />
+      <label>Password:</label>
+      <input type="password" name="password" />
+      <button type="submit">Sign Up</button>
+    </form>
+  );
+}

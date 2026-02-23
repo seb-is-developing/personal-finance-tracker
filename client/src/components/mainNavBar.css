@@ -1,0 +1,88 @@
+.main-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 5, 20, 0.96) 0%,
+    rgba(6, 6, 10, 0.95) 100%
+  );
+  border-bottom: 1px solid rgba(175, 122, 255, 0.28);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.logo {
+  margin: 0;
+  font-family: "Jersey 20", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  letter-spacing: 0.8px;
+  color: #f6f0ff;
+  text-shadow: 0 6px 18px rgba(180, 132, 245, 0.35);
+  white-space: nowrap;
+}
+
+.nav-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-nav-bar-buttons {
+  border: 1px solid rgba(175, 122, 255, 0.35);
+  border-radius: 12px;
+  background: linear-gradient(
+    160deg,
+    rgba(74, 25, 98, 0.85) 0%,
+    rgba(28, 12, 41, 0.92) 100%
+  );
+  color: #f6f0ff;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  padding: 10px 14px;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.main-nav-bar-buttons:hover {
+  transform: translateY(-1px);
+  border-color: rgba(202, 167, 255, 0.75);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(202, 167, 255, 0.2) inset;
+}
+
+.main-nav-bar-buttons:focus-visible {
+  outline: 2px solid rgba(202, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .main-nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
