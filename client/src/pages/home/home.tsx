@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./home.css";
 import MainNavBar from "../../components/mainNavBar";
-
+import { useNavigate } from "react-router-dom";
 interface UserStory {
   name: string;
   story: string;
@@ -38,6 +38,8 @@ export default function Home() {
     userStories[0].story,
   );
 
+  const navigate = useNavigate();
+
   const handleClick = (i: number) => {
     setStorySelectedName(userStories[i].name);
     setSelectedStory(userStories[i].story);
@@ -62,7 +64,12 @@ export default function Home() {
               and visibility to stay in control.
             </p>
             <div className="hero-buttons">
-              <button className="story-buttons">Get Started</button>
+              <button
+                className="story-buttons"
+                onClick={() => navigate("/sign-up")}
+              >
+                Get Started
+              </button>
               <button className="story-buttons">Learn More</button>
             </div>
           </div>
