@@ -8,9 +8,19 @@ export default function SignUp() {
         <form className="register-form">
           <h1 className="register-form-title">Sign Up</h1>
           <label className="register-label">Full Name:</label>
-          <input type="text" name="fullName" className="register-input" />
+          <input
+            type="text"
+            name="fullName"
+            className="register-input"
+            placeholder="John Doe"
+          />
           <label className="register-label">Username:</label>
-          <input type="text" name="username" className="register-input" />
+          <input
+            type="text"
+            name="username"
+            className="register-input"
+            placeholder="johndoe123"
+          />
           <label className="register-label">Email:</label>
           <input
             type="email"
@@ -19,7 +29,12 @@ export default function SignUp() {
             placeholder="john.doe@example.com"
           />
           <label className="register-label">Password:</label>
-          <input type="password" name="password" className="register-input" />
+          <input
+            type="password"
+            name="password"
+            className="register-input"
+            placeholder="********"
+          />
           <button className="register-button" type="submit">
             Sign Up
           </button>
