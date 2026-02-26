@@ -2,8 +2,15 @@ import MainNavBar from "../../components/mainNavBar";
 import "./signUp.css";
 import { useState } from "react";
 
+interface UserData {
+  fullName: string;
+  username: string;
+  email: string;
+  password: string;
+}
+
 export default function SignUp() {
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<UserData>({
     fullName: "",
     username: "",
     email: "",
@@ -13,7 +20,7 @@ export default function SignUp() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
-      ...prevData,    
+      ...prevData,
       [name]: value,
     }));
   };
