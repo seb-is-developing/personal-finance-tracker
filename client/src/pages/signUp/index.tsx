@@ -1,3 +1,4 @@
+import Footer from "../../components/footer";
 import MainNavBar from "../../components/mainNavBar";
 import "./signUp.css";
 import { useState } from "react";
@@ -76,6 +77,7 @@ export default function SignUp() {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./home.css";
 import MainNavBar from "../../components/mainNavBar";
+import Footer from "../../components/footer";
 import { useNavigate } from "react-router-dom";
 interface UserStory {
   name: string;
@@ -101,6 +102,7 @@ export default function Home() {
           <div className="pricing-card">enterprise</div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
