@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema<IUserDocument>(
 );
 // Hash password before save
 userSchema.pre("save", async function () {
-  if (!this.isModified("password")) return;
+  if (!this.isModified("passwordHash")) return;
   this.passwordHash = await bcrypt.hash(this.passwordHash, 10);
 });
 
