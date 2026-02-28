@@ -1,13 +1,13 @@
 import express from "express";
+import authRoutes from "./routes/auth.routes";
 
 const app = express();
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-const PORT = Number(process.env.PORT) || 4000;
-
-app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
-});
+export default app;

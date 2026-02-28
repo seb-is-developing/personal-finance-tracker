@@ -1,19 +1,19 @@
-import dotenv from "dotenv";
-import connectDB from "./config/database.ts";
-import app from "./index.js";
+import "dotenv/config";
 
-dotenv.config();
+import connectDB from "./config/database";
+import app from "./index";
+
+const PORT = Number(process.env.PORT) || 4000;
 
 const startServer = async (): Promise<void> => {
-  try {
-    await connectDB();
+  await connectDB();
 
-    app.listen(process.env.PORT || 8000, () => {
-      console.log(`Server running on port: ${process.env.PORT || 8000}`);
-    });
-  } catch (error) {
-    console.error("Startup failed:", error);
-  }
+  app.listen(PORT, () => {
+    console.log(`API running on http://localhost:${PORT}`);
+  });
 };
 
-startServer();
+startServer().catch((err) => {
+  console.error("Startup failed:", err);
+  process.exit(1);
+});
