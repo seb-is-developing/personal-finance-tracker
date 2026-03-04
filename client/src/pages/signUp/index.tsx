@@ -2,12 +2,19 @@ import Footer from "../../components/footer";
 import MainNavBar from "../../components/mainNavBar";
 import "./signUp.css";
 import { useState } from "react";
-
+import { registerUser } from "../../api/api";
 interface UserData {
   fullName: string;
   username: string;
   email: string;
-  password: string;
+  passwordHash: string;
+}
+
+interface ErrorState {
+  fullName?: string;
+  username?: string;
+  email?: string;
+  password?: string;
 }
 
 export default function SignUp() {
@@ -15,8 +22,10 @@ export default function SignUp() {
     fullName: "",
     username: "",
     email: "",
-    password: "",
+    passwordHash: "",
   });
+  const [error, setError] = useState<ErrorState>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -26,10 +35,42 @@ export default function SignUp() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const validate = (data: UserData): ErrorState => {
+    const next: ErrorState = {};
+
+    if (!data.fullName.trim()) next.fullName = "Full name is required";
+    if (!data.username.trim()) next.username = "Username is required";
+    if (!data.email.trim()) next.email = "Email is required";
+    if (!data.passwordHash) next.password = "Password is required";
+    if (data.passwordHash && data.passwordHash.length < 6)
+      next.password = "Password must be at least 6 characters";
+
+    return next;
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const fieldErrors = validate(userData);
+    if (Object.keys(fieldErrors).length > 0) {
+      setError(fieldErrors);
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      await registerUser(userData);
+
+      setUserData({ fullName: "", username: "", email: "", passwordHash: "" });
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Registration failed";
+      setError({ general: message });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <>
       <MainNavBar />
@@ -45,6 +86,7 @@ export default function SignUp() {
             value={userData.fullName}
             onChange={handleChange}
           />
+          {error.fullName && <p className="error-text">{error.fullName}</p>}
           <label className="register-label">Username:</label>
           <input
             type="text"
@@ -54,6 +96,8 @@ export default function SignUp() {
             value={userData.username}
             onChange={handleChange}
           />
+          {error.username && <p className="error-text">{error.username}</p>}
+
           <label className="register-label">Email:</label>
           <input
             type="email"
@@ -63,17 +107,25 @@ export default function SignUp() {
             value={userData.email}
             onChange={handleChange}
           />
+          {error.email && <p className="error-text">{error.email}</p>}
+
           <label className="register-label">Password:</label>
           <input
             type="password"
-            name="password"
+            name="passwordHash"
             className="register-input"
             placeholder="********"
-            value={userData.password}
+            value={userData.passwordHash}
             onChange={handleChange}
           />
-          <button className="register-button" type="submit">
-            Sign Up
+          {error.password && <p className="error-text">{error.password}</p>}
+
+          <button
+            className="register-button"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Signing up..." : "Sign Up"}
           </button>
         </form>
       </div>
