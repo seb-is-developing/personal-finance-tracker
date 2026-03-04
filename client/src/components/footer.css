@@ -1,0 +1,163 @@
+.site-footer {
+  background: linear-gradient(180deg, #100014 0%, #07070a 100%);
+  border-top: 1px solid rgba(175, 122, 255, 0.28);
+  box-shadow: 0 -12px 28px rgba(0, 0, 0, 0.35);
+  padding: 48px 24px 20px;
+}
+
+.site-footer-container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, minmax(120px, 1fr));
+  gap: 24px;
+}
+
+.site-footer-brand {
+  max-width: 420px;
+}
+
+.site-footer-title {
+  margin: 0;
+  font-family: "Jersey 20", sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  color: #f6f0ff;
+  text-shadow: 0 8px 22px rgba(180, 132, 245, 0.35);
+}
+
+.site-footer-description {
+  margin: 12px 0 0;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cfbddf;
+}
+
+.site-footer-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-footer-links-group h4 {
+  margin: 0;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 1.15rem;
+  color: #f6f0ff;
+  letter-spacing: 0.6px;
+}
+
+.site-footer-links-group a {
+  width: fit-content;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 0.92rem;
+  color: #ddccf2;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.site-footer-links-group a:hover {
+  color: #f6f0ff;
+  border-color: rgba(202, 167, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.site-footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-footer-social h4 {
+  margin: 0;
+  font-family: "Jersey 20", sans-serif;
+  font-size: 1.15rem;
+  color: #f6f0ff;
+  letter-spacing: 0.6px;
+}
+
+.site-footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.site-footer-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  text-decoration: none;
+  color: #f6f0ff;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(175, 122, 255, 0.35);
+  background: linear-gradient(
+    160deg,
+    rgba(74, 25, 98, 0.65) 0%,
+    rgba(28, 12, 41, 0.9) 100%
+  );
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.site-footer-social-links a svg {
+  width: 20px;
+  height: 20px;
+}
+
+.site-footer-social-links a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(202, 167, 255, 0.75);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(202, 167, 255, 0.2) inset;
+}
+
+.site-footer-bottom {
+  width: min(1100px, 100%);
+  margin: 28px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(175, 122, 255, 0.22);
+}
+
+.site-footer-bottom p {
+  margin: 0;
+  text-align: center;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-size: 0.85rem;
+  color: #bda8cf;
+}
+
+@media (max-width: 900px) {
+  .site-footer-container {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+
+  .site-footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .site-footer-social {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer {
+    padding: 40px 18px 18px;
+  }
+
+  .site-footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
