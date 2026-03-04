@@ -15,6 +15,7 @@ interface ErrorState {
   username?: string;
   email?: string;
   password?: string;
+  general?: string;
 }
 
 export default function SignUp() {
