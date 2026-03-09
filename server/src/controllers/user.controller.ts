@@ -1,5 +1,6 @@
 import User from "../models/user";
 import { Request, Response } from "express";
+import { signToken } from "../utils/jwt";
 
 export const getUsers = async (
   _req: Request,
@@ -37,8 +38,11 @@ export const registerUser = async (
       passwordHash,
     });
 
+    const token = signToken({ userId: newUser._id });
+
     return res.status(201).json({
       message: "User registered successfully",
+      token,
       user: {
         id: newUser._id,
         fullName: newUser.fullName,
@@ -79,8 +83,11 @@ export const loginUser = async (
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
+    const token = signToken({ id: user._id });
+
     return res.status(200).json({
       message: "Login successful",
+      token,
       user: {
         id: user._id,
         fullName: user.fullName,
