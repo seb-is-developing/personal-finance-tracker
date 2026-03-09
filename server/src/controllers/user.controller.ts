@@ -51,3 +51,44 @@ export const registerUser = async (
     return res.status(500).json({ message });
   }
 };
+
+export const loginUser = async (
+  req: Request,
+  res: Response,
+): Promise<Response> => {
+  try {
+    const { email, passwordHash } = req.body;
+
+    if (!email || !passwordHash) {
+      return res
+        .status(400)
+        .json({ message: "Email and password are required" });
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase() }).select(
+      "+passwordHash",
+    );
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    const passwordMatch = await user.comparePassword(passwordHash);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    return res.status(200).json({
+      message: "Login successful",
+      user: {
+        id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error" });
+  }
+};
