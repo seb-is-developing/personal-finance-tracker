@@ -15,6 +15,7 @@ interface ErrorState {
   username?: string;
   email?: string;
   password?: string;
+  general?: string;
 }
 
 export default function SignUp() {
@@ -62,6 +63,11 @@ export default function SignUp() {
 
       await registerUser(userData);
 
+      const result = await registerUser(userData);
+      if (result.token) {
+        localStorage.setItem("token", result.token);
+        // optionally store user info
+      }
       setUserData({ fullName: "", username: "", email: "", passwordHash: "" });
     } catch (err: unknown) {
       const message =
