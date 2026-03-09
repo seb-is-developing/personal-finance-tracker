@@ -1,4 +1,4 @@
-.register-form-container {
+.login-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
     linear-gradient(180deg, #110015 0%, #09090d 100%);
 }
 
-.register-form {
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -32,7 +32,7 @@
   backdrop-filter: blur(3px);
 }
 
-.register-form-title {
+.login-form-title {
   margin: 0 0 8px;
   font-family: "Jersey 20", sans-serif;
   font-size: clamp(2rem, 4vw, 2.35rem);
@@ -44,7 +44,7 @@
   text-shadow: 0 8px 24px rgba(180, 132, 245, 0.45);
 }
 
-.register-label {
+.login-label {
   font-family: "Jersey 20", sans-serif;
   font-size: 1.2rem;
   letter-spacing: 0.4px;
@@ -52,7 +52,7 @@
   margin: 0 0 3px;
 }
 
-.register-input {
+.login-input {
   width: 100%;
   box-sizing: border-box;
   padding: 10px 12px;
@@ -68,11 +68,11 @@
   margin: 0 0 10px;
 }
 
-.register-input::placeholder {
+.login-input::placeholder {
   color: #b69fd2;
 }
 
-.register-input:focus {
+.login-input:focus {
   outline: none;
   border-color: rgba(202, 167, 255, 0.95);
   background: rgba(14, 11, 22, 0.86);
@@ -81,7 +81,7 @@
     0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.register-button {
+.login-button {
   margin-top: 4px;
   font-family: "Jersey 20", sans-serif;
   font-size: 1.25rem;
@@ -102,7 +102,7 @@
     box-shadow 0.2s ease;
 }
 
-.register-button:hover {
+.login-button:hover {
   transform: translateY(-1px);
   border-color: rgba(202, 167, 255, 0.75);
   box-shadow:
@@ -110,24 +110,35 @@
     0 0 0 1px rgba(202, 167, 255, 0.24) inset;
 }
 
-.register-button:focus-visible {
+.login-button:focus-visible {
   outline: 2px solid rgba(202, 167, 255, 0.85);
   outline-offset: 2px;
 }
 
 .error-text {
-  color: #ff6b6b;
-  font-size: 0.9rem;
+  font-family: "Jersey 20", sans-serif;
+  color: #000000;
+  font-size: 30px;
   margin: 0 0 10px;
+  border: #09090d 1px solid;
+  justify-content: center;
+  display: flex;
+  background-color: #fc0404;
+  border-radius: 20px;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(202, 167, 255, 0.24) inset;
+    margin-top: 10px;
+    margin-bottom: 20;
 }
 
 @media (max-width: 640px) {
-  .register-form-container {
+  .login-container {
     min-height: calc(100vh - 72px);
     padding: 24px 14px;
   }
 
-  .register-form {
+  .login-form {
     padding: 20px;
     border-radius: 14px;
   }
