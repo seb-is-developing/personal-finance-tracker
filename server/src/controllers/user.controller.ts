@@ -1,5 +1,6 @@
 import User from "../models/user";
 import { Request, Response } from "express";
+import { signToken } from "../utils/jwt";
 
 export const getUsers = async (
   _req: Request,
@@ -37,8 +38,11 @@ export const registerUser = async (
       passwordHash,
     });
 
+    const token = signToken({ userId: newUser._id });
+
     return res.status(201).json({
       message: "User registered successfully",
+      token,
       user: {
         id: newUser._id,
         fullName: newUser.fullName,
@@ -49,5 +53,49 @@ export const registerUser = async (
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Server error";
     return res.status(500).json({ message });
+  }
+};
+
+export const loginUser = async (
+  req: Request,
+  res: Response,
+): Promise<Response> => {
+  try {
+    const { email, passwordHash } = req.body;
+
+    if (!email || !passwordHash) {
+      return res
+        .status(400)
+        .json({ message: "Email and password are required" });
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase() }).select(
+      "+passwordHash",
+    );
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    const passwordMatch = await user.comparePassword(passwordHash);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    const token = signToken({ id: user._id });
+
+    return res.status(200).json({
+      message: "Login successful",
+      token,
+      user: {
+        id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error" });
   }
 };
